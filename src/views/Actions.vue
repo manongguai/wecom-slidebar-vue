@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Button, Input, message } from 'ant-design-vue'
 import { Component, Vue } from 'vue-property-decorator'
-import { invoke } from 'wecom-sidebar-jssdk'
+import { asyncCall } from 'wecom-sidebar-jssdk'
 
 @Component({
   name: 'Actions',
@@ -30,7 +30,7 @@ export default class Actions extends Vue {
     if (!this.msg) alert('消息不能为空')
 
     try {
-      await invoke('sendChatMessage', {
+      await asyncCall('sendChatMessage', {
         msgtype: 'text',
         enterChat: true,
         text: {

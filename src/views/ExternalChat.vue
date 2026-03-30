@@ -22,7 +22,7 @@
 import { ExternalChatResponse } from '@/api/types'
 import { Component, Vue } from 'vue-property-decorator'
 import { fetchExternalChat } from '@/api'
-import { invoke } from 'wecom-sidebar-jssdk'
+import { asyncCall } from 'wecom-sidebar-jssdk'
 import { message } from 'ant-design-vue'
 
 @Component({
@@ -33,7 +33,7 @@ export default class ExternalChat extends Vue {
 
   async openUserProfile (userId: string, type: 1 | 2) {
     try {
-      await invoke('openUserProfile', {
+      await asyncCall('openUserProfile', {
         userid: userId,
         type
       })
@@ -44,7 +44,7 @@ export default class ExternalChat extends Vue {
 
   async getExternalChatInfo () {
     try {
-      const res = await invoke('getCurExternalChat', {})
+      const res = await asyncCall('getCurExternalChat', {})
 
       if (!res || !res.chatId) return
 

@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { checkRedirect, initSdk } from 'wecom-sidebar-jssdk'
+import { asyncCall, checkRedirect, initSdk } from 'wecom-sidebar-jssdk'
 import config from '@/config'
-import { fetchSignatures, fetchUserId } from '@/api'
+import { fetchSignatures, fetchUserId, fetchAgentConfigSignature } from '@/api'
 
 import 'ant-design-vue/dist/antd.css'
 import { mockSdk } from '@/mock'
@@ -15,8 +15,13 @@ mockSdk()
 Vue.config.productionTip = false
 
 checkRedirect(config, fetchUserId) // 重定向获取 code（用户身份）
-  .then(() => initSdk(config, fetchSignatures)) // 初始化 JsSdk
   .then(() => {
+    try {
+      initSdk(config, fetchSignatures, fetchAgentConfigSignature)
+    } catch (error) {
+      console.log('初始化失败1：' + JSON.stringify(error))
+    }
+  }).then(() => {
     new Vue({
       router,
       store,

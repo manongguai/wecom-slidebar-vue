@@ -45,13 +45,6 @@ import {setInvokeResMock, setWxResMock, setMockUserId} from "wecom-sidebar-jssdk
 // Mock 当前用户 Id
 const mockUserId = window._mockUserId || "YanHaiXiang";
 
-// 可在这里自由 mock wx.invoke 的内容
-const invokeResMock: Record<string, any> = window._invokeResMock || {
-  getCurExternalContact: {
-    userId: "wmuUG7CQAAOrCCMkA8cqcCm1wJrJAD6A",
-  },
-};
-
 // 可在这里自由 wx.fn 的内容
 const wxResMock: Record<string, any> = window._wxResMock || {
   agentConfig: () => {
@@ -61,7 +54,6 @@ const wxResMock: Record<string, any> = window._wxResMock || {
 
 // 初始化 mockSdk
 export const mockSdk = () => {
-  setInvokeResMock(invokeResMock);
   setWxResMock(wxResMock);
   setMockUserId(mockUserId)
 }

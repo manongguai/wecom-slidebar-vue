@@ -19,7 +19,7 @@ import { ExternalUserResponse } from '@/api/types'
 import { Component, Vue } from 'vue-property-decorator'
 import { Button, message } from 'ant-design-vue'
 import { fetchExternalUser } from '@/api'
-import { invoke } from 'wecom-sidebar-jssdk'
+import { asyncCall } from 'wecom-sidebar-jssdk'
 
 @Component({
   name: 'ExternalUser',
@@ -33,7 +33,7 @@ export default class ExternalUser extends Vue {
 
   async getExternalUserInfo () {
     try {
-      const res = await invoke('getCurExternalContact', {})
+      const res = await asyncCall('getCurExternalContact', {})
 
       if (!res || !res.userId) return
 
@@ -51,9 +51,9 @@ export default class ExternalUser extends Vue {
     }
 
     try {
-      await invoke('openUserProfile', {
+      await asyncCall('openUserProfile', {
         userid: this.externalUser.external_userid,
-        type: this.externalUser.type
+        type: 2
       })
     } catch (e) {
       message.error(e.message)

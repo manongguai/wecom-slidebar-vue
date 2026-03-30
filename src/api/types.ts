@@ -29,21 +29,9 @@ export interface AuthResponse extends Response {
 }
 
 export interface TicketRes {
-  meta: {
-    nonceStr: string,
-    timestamp: number,
-    url: string,
-  },
-  app: {
-    ticket: string,
-    expires: number,
-    signature: string,
-  },
-  corp: {
-    ticket: string,
-    expires: number,
-    signature: string,
-  },
+  nonceStr: string;
+  timestamp: number;
+  signature: string;
 }
 
 export interface Member {
@@ -61,5 +49,11 @@ export interface ExternalChatResponse extends Response {
     create_time: number // 创建时间
     notice: string // 公告
     member_list: Member[] // 成员列表
+  }
+}
+
+declare global {
+  interface Window {
+    ww: any;
   }
 }
