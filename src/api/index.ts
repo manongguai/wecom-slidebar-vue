@@ -57,13 +57,22 @@ export const fetchUserId = async (code: string) => {
 }
 
 // 获取签名
-export const fetchSignatures = async () => {
-  const response = await api.get<TicketRes>('/api/qywx-utils/signatures', {
+export const fetchCorpSignatures = async () => {
+  const response = await api.get<TicketRes>('/api/qywx-utils/corpSignatures', {
     params: {
       url: window.location.href
     }
   })
+  return response.data
+}
 
+// 获取签名
+export const fetchAgentConfigSignature = async () => {
+  const response = await api.get<TicketRes>('/api/qywx-utils/agentSignatures', {
+    params: {
+      url: window.location.href
+    }
+  })
   return response.data
 }
 
