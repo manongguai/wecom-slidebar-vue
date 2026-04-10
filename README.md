@@ -1,6 +1,6 @@
 # wecom-sidebar-vue-tpl
 
-企业微信侧边栏 vue 开发模板
+企业微信侧边栏 vue 开发模板 - 已支持js-sdk-2.3.4版本
 
 ## 功能
 
@@ -69,6 +69,4 @@ npm run start
 
 ## 更多
 
-* 侧边栏的 React 开发模板可以看 [wecom-sidebar-react-tpl](https://github.com/wecom-sidebar/wecom-sidebar-react-tpl)
-* 侧边栏的 Node 端开发模板（Express）可以看 [wecom-sidebar-express-tpl](https://github.com/wecom-sidebar/wecom-sidebar-express-tpl)
-* 侧边栏的微前端开发模板（Qiankun）可以看 [weccom-sidebar-qiankun-tpl](https://github.com/wecom-sidebar/wecom-sidebar-qiankun-tpl)
+* 侧边栏的 Node 端开发模板（Express）可以看 [wecom-sidebar-express-tpl](https://github.com/manongguai/wecom-sidebar-express)
